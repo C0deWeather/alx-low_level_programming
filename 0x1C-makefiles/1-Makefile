@@ -5,9 +5,7 @@ CC = gcc
 SRC = $(wildcard *.c)
 
 all: school
-
-school: $(SRC)
-	$(CC) $^ -o $@
+	$(CC) $(SRC) -o $@
 
 clean:
 	rm -f school
