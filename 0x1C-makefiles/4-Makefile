@@ -1,0 +1,31 @@
+
+.PHONY: all clean oclean fclean re
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm
+CFLAGS = -Wall -Werror -Wextra -pedantic
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $@
+
+# compile each source file to an object file
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+# removes all files
+fclean: clean oclean
+
+# removes all Emacs/vi temporary files along with the executable
+clean:
+	$(RM) -f *~ $(NAME)
+
+# removes all object files
+oclean:
+	$(RM) -f $(OBJ)
+
+re: oclean all
+
