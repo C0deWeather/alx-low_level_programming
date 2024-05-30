@@ -3,7 +3,7 @@
 
 # Define the variables
 CC = gcc
-SRC = $(wildcard *.c)
+SRC = main.c school.c
 
 # Default target to build the executable
 all: school
@@ -15,4 +15,3 @@ school: $(SRC)
 # Rule to clean the build artifacts
 clean:
 	rm -f school
-
